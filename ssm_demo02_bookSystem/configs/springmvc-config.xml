@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc 
+	http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!--扫描组件 -->
+	<!--告诉Spring 到哪里去找标记为@Controller 的Controller控制器-->
+	<context:component-scan base-package="com.ssm.controller"/>
+	<!--启用注解驱动-mvc配置 -->
+	<mvc:annotation-driven/>
+	<!--配置视图解析器 -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+	p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"/>
+	
+  <!--添加multipartResolver的bean支持文件上传 maxUploadSize 上传文件的最大大小，单位为字节-->
+  <!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+  p:maxUploadSize="802400" p:defaultEncoding="utf-8"/> -->
+</beans>
